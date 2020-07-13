@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header, article,main,footer,section,nav,ul,div,a,li {
+    display: block;
+}
+
+.container{
+    position: relative;
+    margin-left: 30%;
+    width: 100%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    justify-content: space-evenly;
+    margin-bottom: 70px;
+    margin-top: 40px; 
+}

@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header, article,main,footer,section,nav,ul,div,a,li {
+    display: block;
+}
+
+/************HEADER***********/
+header{
+    height: 150px;
+    width: 100%;
+}
+
+.logoutButton{ /****TODO Doesn't work*******/
+    position: absolute;
+    right: 2px;
+}
+.profileIcon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    float: right;
+    margin: 2px;
+}
+
+#logo {
+    position: absolute;
+    width: 15%;
+    height: 140px;
+    background-image: url("images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 45%;
+}
+
+.headerIcons a{
+    position: relative;
+    margin: 25px;    
+    font-size: 35px; 
+    color: firebrick;
+    letter-spacing: 35px;
+    }
+
+.headerIcons a:hover{
+    text-decoration: none;
+    color: rgb(151, 5, 5);
+}
+
+/************NAVBAR***********/
+
+nav a:hover {
+    border-style: solid;
+    border-width: 0px 0px 2.5px 0px;
+    border-color: rgb(161, 44, 15);
+}
+
+.nav-link {
+    font-size: 17px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-right: 100px;
+}
+
+.navbar{
+    position: relative;
+}
+
+
+/****************BREADCRUMBS*************/
+
+.breadcrumb {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 50px;
+    width: 100%;
+}
+/****************FORM********************/
+
+.form_wrapper{
+    position: relative;
+    margin-left: 40%;
+    width: 380px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    justify-content: space-evenly;
+    margin-bottom: 70px;
+    margin-top: 40px;
+}
+.form_wrapper input[type="text"], .form_wrapper input[type="email"], .form_wrapper input[type="tel"], .form_wrapper textarea{
+    width:100%;
+    height: 40px;
+}
+
+.icons {
+    position: relative;
+    margin-top: 5px; 
+}
+.icons label{
+    padding: 10px;
+}
+
+.finishedButton input {
+    height: 70px;
+    width: 300px;
+    background-color: firebrick;
+    border-radius: 20px;
+    margin-left: 70px;
+    font-weight: bold;
+    font-size: 27px;
+}
+
+
+input:invalid {
+    border: firebrick solid 1px;
+}
+
+textarea:invalid {
+    border: firebrick solid 1px;
+}
+
+
+/*mobile*/
+@media (max-width: 680px) {
+    .breadcrumb {
+        visibility: hidden;
+    }
+    header{
+        background-color: white;
+        height: 80px;
+    }
+    .profileIcon{
+        width: 40px;
+        height: 40px;
+    }
+    
+    #logo{
+    background-image: url(../../images/logoPhone.png) ;
+    height: 70px;
+    }
+    
+    .main_wrapper{
+        margin-top: -40px;
+    }
+    .headerIcons a{
+        margin: 2%;
+        font-size: 17px; 
+        letter-spacing: 12px;
+    }
+
+    .card-text{
+        font-size:15px;
+    }  
+
+    .registerWrapper h1{
+        font-size: 20px;
+    }
+    /***********FORM**************/
+    .form_wrapper{
+        margin-top: -40px;
+        margin-left: 25%;
+        width: 180px;
+        font-size: 10px;
+        margin-bottom: 50px;
+    }
+
+    .form_wrapper input[type="text"], .form_wrapper input[type="email"], .form_wrapper input[type="tel"], .form_wrapper textarea{
+        width:100%;
+        height: 20px;
+    }
+
+    .icons img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .finishedButton input {
+        height: 30px;
+        width: 180px;
+        border-radius: 20px;
+        margin-left: 0px;
+        font-size: 17px;
+    }
+}
+
+
+/*project*/
+.color {
+    color: red;
+}
+
+.heart {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    top: -70px;
+    float:center;
+    font-size: 50px;
+    background-color: white;
+}
+
+/**********Login Form************/
+
+
+.loginWrapper{
+    position: absolute;
+    width: 1000px;
+    height: 500px;
+    left: 45%;
+    top: 80px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.loginWrapper h1{
+    color: firebrick;
+    font-size: 100px;
+    display:flex;
+    width: 90%;
+}
+
+.loginWrapper form{
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    left: 20%;
+    top: 50px;
+}
+.registerWrapper{
+    width: 1000px;
+    height: 500px;
+    left: 45%;
+    top: 80px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.registerWrapper h1{
+    margin: 0 auto;
+    color: firebrick;
+    font-size: 70px;
+    display:flex;
+    width: 100%;
+
+}
+
+.registerWrapper form{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    top: 50px;
+    
+}
+
+/***********Registration Form***********/
+.registerWrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 20px;
+    top: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/************Login/Register************/
+.container{
+    font-size: 30px;
+    font-family: Carter One;
+    font-style: normal;
+    font-weight: normal;
+    display: flex; 
+    margin: 0 auto; 
+    margin-top: 5%;
+    width: 800px;
+    height: 800px;
+    background: url(../media/images/Shaker_logo.png) no-repeat center;
+    background-size: 100% 100%;
+}  
+/*
+.ml{
+    margin-left: 5%;
+}
+.mlRegister{
+    margin-left: 55%;
+
+}*/
+.container a{
+    color: firebrick;   
+}
+
+.container a:hover{
+    color: black;
+    text-decoration: none;
+
+}
+
+/**************HOME PAGE***************/
+.projects-container{
+    display: flex;
+    justify-content: space-between;
+    text-align: center; 
+    width: 1000px;
+    height: 800px;
+    flex-wrap: wrap;
+  }
+  
+  .project-item{
+    margin-right: 55px;
+    justify-content: space-evenly;
+    float: left;
+  }
+
