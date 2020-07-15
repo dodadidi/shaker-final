@@ -27,7 +27,7 @@
    <span>Hi {{user.username}}</span>
     <form action="{% url 'logoutuser' %}" method="POST">
         {% csrf_token %}
-            <button calss="logoutButton" type='submit'>Logout</button>
+            <button class="btn btn-light" type='submit'>Logout</button>
     </form>
     </div>
 
@@ -74,7 +74,7 @@
 
       {% for project in projects %}
                 <section id={{project.id}} class="project-item"> 
-                  <a href="/project/{{project.id}}/about">
+                  <a href="/project/{{ project.id }}/about">
                     {% if project.imgUrl %}
                       <img src="{{project.imgUrl.url}}" alt="{{project.projectName}}" title="{{project.projectName}}">
                     {% endif %}

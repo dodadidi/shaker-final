@@ -76,46 +76,48 @@
  	<body>
         {% if user.is_authenticated %}
             <h1>{{project.projectName}}</h1>
+            <span>{{project.dateCreated}})</span>
             <br><br>
             <h3>{{errMsg}}</h3>
+            <br><br>
             <div class="heart"><i class="fas fa-heart"></i></div>
             <div class="project-container">
                     {% if project.imgUrl %}
                         <img src="{{project.imgUrl.url}}" alt="{{project.projectName}}" title="{{project.projectName}}">
                     {% endif %}
-                    {% if t.description %} 
+                    {% if project.description %} 
                         <p>Description: {{t.description}}</p>
                     {% endif %}
                     <br><br>
-                    {% if t.fasion %}
+                    {% if project.fasion %}
                         <img src="{% static 'projects/media/images/departmentsIcons/fashion.png' %}" class="Fasion" alt="Fasion" title="Fasion">&nbsp;
                     {% endif %}
-                    {% if t.art %}
+                    {% if project.art %}
                         <img src="{% static 'projects/media/images/departmentsIcons/art.png' %}" class="Art" alt="Art" title="Art">&nbsp;
                     {% endif %}
-                    {% if t.chemical %}
+                    {% if project.chemical %}
                       <img src="{% static 'projects/media/images/departmentsIcons/chemical.png' %}" class="Chemical" alt="Chemical" title="Chemical">&nbsp;
                     {% endif %}
-                    {% if t.graphic %}
+                    {% if project.graphic %}
                         <img src="{% static 'projects/media/images/departmentsIcons/graphic.png' %}" class="Graphic" alt="Graphic" title="Graphic">&nbsp;
                     {% endif %}
-                    {% if t.jewellery %}
+                    {% if project.jewellery %}
                         <img src="{% static 'projects/media/images/departmentsIcons/jewellery.png' %}" class="Jewellery" alt="jewellery" title="jewellery">&nbsp;
                     {% endif %}
-                    {% if t.software %}
+                    {% if project.software %}
                         <img src="{% static 'projects/media/images/departmentsIcons/software.png' %}" class="Software" alt="Software" title="Software">&nbsp;
                     {% endif %}
-                    {% if t.Textil %}
+                    {% if project.Textil %}
                         <img src="{% static 'projects/media/images/departmentsIcons/textil.png' %}" class="Textil" alt="Textil" title="Textil">&nbsp;
                     {% endif %}
-                    {% if t.Electronic %}
+                    {% if project.Electronic %}
                         <img src="{% static 'projects/media/images/departmentsIcons/electronic.png' %}" class="Electronic" alt="Electronic" title="Electronic">&nbsp;
                     {% endif %}
-                    {% if t.industrial %}
+                    {% if project.industrial %}
                         <img src="{% static 'projects/media/images/departmentsIcons/indus.png' %}" class="Industrial" alt="Industrial" title="Industrial">&nbsp;
                     {% endif %}
                     <br><br>
-                    {{t.dateCreated}})
+                    
                 {% endif %}
               </div> 
         <script src="{% static 'projects/js/futureJS.js' %}"></script>

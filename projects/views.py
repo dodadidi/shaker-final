@@ -20,8 +20,8 @@ def home(request):
     return render(request, 'projects/loginRegister.html')
 
 @login_required
-def projectabout(request, project_id):
-    project = Project.objects.get(id=project_id)
+def projectabout(request, project_pk):
+    project = Project.objects.get(id=project_pk)
     return render(request, 'projects/project.html', {'project': project})
 #    return render(request, 'project.html')
 
@@ -74,6 +74,7 @@ def createNewProject(request):
             form = ProjectForm(request.POST, request.FILES)
             newProject = form.save(commit=False)
             newProject.user_id = request.user
+            # JANGO form validations
             newProject.save()
             return redirect('my-projects')
         except ValueError:

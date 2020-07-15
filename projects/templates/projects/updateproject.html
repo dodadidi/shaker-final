@@ -82,20 +82,20 @@
             <form action="#" method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
-                <button type='submit'>Update Project</button>
+                <button class="btn btn-light" type='submit'>Update Project</button>
             </form>
 
 
             <form action="{% url 'doneproject' project.id %}" method="POST">
                 {% csrf_token %}
-                <button type='submit'>Project Completed</button>
+                <button class="btn btn-light" type='submit'>Project Completed</button>
             </form>  
 
             <form action="{% url 'deleteproject' project.id %}" method="POST">
 
                 {% csrf_token %}
 
-                <button type='submit'>Delete Task</button>
+                <button class="btn btn-light" type='submit'>Delete Task</button>
 
             </form>  
 
