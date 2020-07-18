@@ -7,29 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel ="stylesheet" href="{% static 'projects/css/style.css' %}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">            
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Cambria">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carter+One&family=Open+Sans&family=Roboto:wght@300&display=swap">
 </head>
 <body>
   <header> 
-    <a href="/homepage" id="logo"></a>   
+    <a href="/homepage" id="logo" ></a>        
       <ul class="headerIcons">
         <li><a href="#" class="far fa-bell"></a>
-          <a href="#" class="fas fa-heart"></a>
-        <a href="/createNewProject" class="fas fa-plus-circle"></a></li>
+            <a href="#" class="fas fa-heart"></a>
+            <a href="/createNewProject" class="fas fa-plus-circle"></a>
+        </li>
       </ul>
-    </div> 
     {% if user.is_authenticated %}
-    <form action="{% url 'logoutuser' %}" method="POST">
-        {% csrf_token %}
-            <button calss="logoutButton" type='submit'>Logout</button>
-    </form>
+    <div class="greeting">
+      <span><b>Hi {{user.username}}</b></span>
+    </div>
     {% else %}
-            <a href="#">Login</a>
-            <a href="register">Register</a>
-        </div>
-    {% endif %}  
-</header>
+      <a href="/Login">Login</a>
+      <a href="/register">Register</a>
+    {% endif %}    
+  </header>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,16 +45,20 @@
           <a class="nav-link" href="/createNewProject">New project</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/allprojects">All Projects <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/allprojects">All projects <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Barter</a>
+          <a class="nav-link" href="/allfaculties">Faculties</a> 
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
+        <form action="{% url 'logoutuser' %}" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-light logoutButton" type='submit'>Logout</button>
+        </form>
     </div>
   </nav>
 
@@ -72,67 +73,69 @@
   </div>
 
     {% if user.is_authenticated %}
-        <h1>All Users Projects</h1>
-        <br><br>
-        <ul>
-            {% for u in users %}
-            <h1>{{ u.username }}'s projects:</h1>
-            <ol>
-                {% for t in allprojects %}
-                    {%if t.user_id_id == u.id %}
-                        <li>
-                            {% if t.user_id_id == user.id %}
-                                <a href="/project/{{ t.id }}">Edit</a> 
-                            {% else %}
-                                <a class="assign" href="/assigntome/{{t.id}}">Assign to me</a> 
-                            {% endif %}
-                            {{t.dateCreated}}) {{t.title}}
-                            {% if t.description %} - {{t.description}} {% endif %}
-                            <br><br>
-                            {% if t.fasion %}
-                                <img src="{% static 'projects/media/images/departmentsIcons/fashion.png' %}" class="Fasion" alt="Fasion" title="Fasion">&nbsp;
-                            {% endif %}
-                            {% if t.art %}
-                                <img src="{% static 'projects/media/images/departmentsIcons/art.png' %}" class="Art" alt="Art" title="Art">&nbsp;
-                            {% endif %}
-                            {% if t.chemical %}
-                              <img src="{% static 'projects/media/images/departmentsIcons/chemical.png' %}" class="Chemical" alt="Chemical" title="Chemical">&nbsp;
-                            {% endif %}
-                            {% if t.graphic %}
-                                <img src="{% static 'projects/media/images/departmentsIcons/graphic.png' %}" class="Graphic" alt="Graphic" title="Graphic">&nbsp;
-                            {% endif %}
-                            {% if t.jewellery %}
-                                <img src="{% static 'projects/media/images/departmentsIcons/jewellery.png' %}" class="Jewellery" alt="jewellery" title="jewellery">&nbsp;
-                            {% endif %}
-                            {% if t.software %}
-                                <img src="{% static 'projects/media/images/departmentsIcons/software.png' %}" class="Software" alt="Software" title="Software">&nbsp;
-                            {% endif %}
-                            {% if t.Textil %}
-                                <img src="{% static 'projects/media/images/departmentsIcons/textil.png' %}" class="Textil" alt="Textil" title="Textil">&nbsp;
-                            {% endif %}
-                            {% if t.Electronic %}
-                                <img src="{% static 'projects/media/images/departmentsIcons/electronic.png' %}" class="Electronic" alt="Electronic" title="Electronic">&nbsp;
-                            {% endif %}
-                            {% if t.industrial %}
-                                <img src="{% static 'projects/media/images/departmentsIcons/indus.png' %}" class="Industrial" alt="Industrial" title="Industrial">&nbsp;
-                            {% endif %}
-                        </li>
-                        <br><br>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-            {% endfor %}
-        </ul>
-        <a href="/myprojects">Back to my projects</a>
-        <br><br>
+    <div class="project-container">
+      <h1>All Users Projects</h1>
+      <br><br>
+      <h3>{{errMsg}}</h3>
 
+      <ul>
+        {% for u in users %}
+        <h2>{{ u.username }}'s projects:</h2>
+        <br>
+        <ol>
+          {% for project in allprojects %}
+            {%if project.user_id_id == u.id %}
+              <li>
+                <a href="/project/{{ project.id }}/about"><h3>{{project.projectName}}</h3>
+                  {{project.dateCreated}}<br>
+                {% if project.description %} {{project.description}} {% endif %}</a>
+                {% if project.user_id_id == user.id %}
+                  <a href="/project/{{ project.id }}" class="fas fa-pencil-alt">&nbsp;&nbsp;Edit</a> 
+                {% endif %} 
+                <br><br>
+                {% if project.fasion %}
+                    <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/fashion.png' %}" class="Fasion" alt="Fasion" title="Fasion">&nbsp;
+                {% endif %}
+                {% if project.art %}
+                    <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/art.png' %}" class="Art" alt="Art" title="Art">&nbsp;
+                {% endif %}
+                {% if project.chemical %}
+                  <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/chemical.png' %}" class="Chemical" alt="Chemical" title="Chemical">&nbsp;
+                {% endif %}
+                {% if project.graphic %}
+                    <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/graphic.png' %}" class="Graphic" alt="Graphic" title="Graphic">&nbsp;
+                {% endif %}
+                {% if project.jewellery %}
+                    <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/jewellery.png' %}" class="Jewellery" alt="jewellery" title="jewellery">&nbsp;
+                {% endif %}
+                {% if project.software %}
+                    <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/software.png' %}" class="Software" alt="Software" title="Software">&nbsp;
+                {% endif %}
+                {% if project.Textil %}
+                    <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/textil.png' %}" class="Textil" alt="Textil" title="Textil">&nbsp;
+                {% endif %}
+                {% if project.Electronic %}
+                    <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/electronic.png' %}" class="Electronic" alt="Electronic" title="Electronic">&nbsp;
+                {% endif %}
+                {% if project.industrial %}
+                    <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/indus.png' %}" class="Industrial" alt="Industrial" title="Industrial">&nbsp;
+                {% endif %}
+              </li>
+              <br><br>
+            {% endif %}
+          {% endfor %}
+        </ol>
+        {% endfor %}
+      </ul>
+      <a href="/myprojects">Back to my projects</a>
+      <br><br>
+    </div>
     {% endif %}
     
     <script src="https://kit.fontawesome.com/9f3ffd2183.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="{% static 'projects/js/shakerJS.js' %>}"></script>
   </body>
   </html>
 </body>

@@ -7,34 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel ="stylesheet" href="{% static 'projects/css/style.css' %}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">            
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Cambria">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carter+One&family=Open+Sans&family=Roboto:wght@300&display=swap">
 </head>
 <body>
   <header> 
-    <a href="/homepage" id="logo"></a>
-    <!--TODO if-->   
-    <!--{%if u.id == 1 %}     {% endif %}-->
-      <a href="#"><img src="{% static 'projects/media/images/profilePic.jpg' %}" class="profileIcon" alt="profile picture" title="profile picture"></a>
-
-    <div>
+    <a href="/homepage" id="logo" ></a>        
       <ul class="headerIcons">
         <li><a href="#" class="far fa-bell"></a>
           <a href="#" class="fas fa-heart"></a>
         <a href="/createNewProject" class="fas fa-plus-circle"></a></li>
       </ul>
-    </div> 
     {% if user.is_authenticated %}
-    <form action="{% url 'logoutuser' %}" method="POST">
-        {% csrf_token %}
-        <button calss="logoutButton" type='submit'>Logout</button>
-    </form>
+    <div class="greeting">
+      <span><b>Hi {{user.username}}</b></span>
+    </div>
     {% else %}
-            <a href="#">Login</a>
-            <a href="register">Register</a>
-        </div>
-    {% endif %} 
-</header>
+      <a href="/Login">Login</a>
+      <a href="/register">Register</a>
+    {% endif %}    
+  </header>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,15 +44,19 @@
           <a class="nav-link" href="/createNewProject">New project </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/allprojects">All Projects</a>
+          <a class="nav-link" href="/allprojects">All projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Barter</a>
+          <a class="nav-link" href="/allfaculties">Faculties</a> 
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <form action="{% url 'logoutuser' %}" method="POST">
+        {% csrf_token %}
+          <button class="btn btn-light logoutButton" type='submit'>Logout</button>
       </form>
     </div>
   </nav>
@@ -70,32 +65,34 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/homepage">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">My Ptojects</li>
+        <li class="breadcrumb-item active" aria-current="page">My projects</li>
       </ol>
     </nav>
   </div>
-        {% if user.is_authenticated %}
-            <h1>{{user.username}}'s Projects</h1>
+  {% if user.is_authenticated %}
+    <div class="project-container">
+      <h1>{{user.username}}'s Projects</h1>
+      <br><br>
+      <ul>
+        <ol>
+          {% for project in allprojects %}
+            <li>
+              <a href="/project/{{ project.id }}/about"><h3>{{project.projectName}}</h3>
+                {{project.dateCreated}}<br>
+                {% if project.description %} {{project.description}} {% endif %}</a>
+                {% if project.user_id_id == user.id %}
+                  <br><a href="/project/{{ project.id }}" class="fas fa-pencil-alt">&nbsp;&nbsp;Edit</a> 
+                {% endif %} 
+            </li>
             <br><br>
-
-            <ul>
-                <ol>
-                    {% for t in allprojects %}
-                        <li>
-                            <a href="/project/{{ t.id }}">
-                                ({{t.dateCreated}}) {{t.projectName}}
-                                {% if t.description %} - {{t.description}} {% endif %}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ol>
-            </ul>
-
-            <a href="/createNewProject">Create new project</a>
-            <a href="/allprojects">See others projects</a>
-            <br><br>
-
-        {% endif %}
+          {% endfor %}
+        </ol>
+      </ul>
+      <a href="/createNewProject">Create new project</a><br>
+      <a href="/allprojects">See others projects</a>
+      <br><br>
+    </div>
+  {% endif %}
 
     <script src="https://kit.fontawesome.com/9f3ffd2183.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

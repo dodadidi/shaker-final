@@ -46,6 +46,11 @@ def myprojects(request):
     projects = Project.objects.filter(user_id=request.user).order_by('-dateCreated')
     return render(request, 'projects/myprojects.html', {'allprojects': projects})
 
+
+@login_required
+def allfaculties(request):
+    return render(request, 'projects/faculties-list.html')
+
 @login_required
 def logoutuser(request):
     if request.method == 'POST':

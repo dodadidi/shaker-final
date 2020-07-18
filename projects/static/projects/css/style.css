@@ -25,8 +25,7 @@ header{
     margin-top: 5%;
     width: 800px;
     height: 800px;
-    background: url(../media/images/Shaker_logo.png) no-repeat left;
-    
+    background: url(../media/images/Shaker_logo.png) no-repeat left; 
 }  
 
 .loginButton{
@@ -53,13 +52,9 @@ header{
 
 .registerWrapper{
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
     top: 70px;
-    margin-bottom: 10px;
-    margin: 0 auto;
     width: 100%;
+    text-align: center;
 }
 
 .registerWrapper h1{
@@ -67,12 +62,13 @@ header{
     font-family: Carter One;
     color: firebrick;
     font-size: 70px;
-    display:flex;
 }
 
 .registerWrapper form{
     position: relative;
     top: 50px;
+    display: inline-block;
+    text-align: left;
 }
 
 .registerWrapper button{
@@ -80,48 +76,12 @@ header{
     left: 40%;
 }
 
-/************mobile**********/
-@media only screen and (min-width:300px) and (max-width:770px){
-    .container{
-        font-size:70px;
-        margin-top: 20%;
-        width: 80%;
-        height: 80%;
-    } 
-    .loginButton{
-        margin-left: 30%;
-        margin-top: 20%;
-    }
-    .registerButton{
-        margin-top: 60%;
-        margin-left: 20%;
-    }
-    .container a{
-        color: white;
-    }
-    .loginRegisterBody{
-        background-color: firebrick;   
-    }
-    .containerLogin h1{
-        font-size: 20pt;
-    }
-    .registerWrapper h1{
-        font-size: 50px;
-        padding-left: 20px;
-    }
-    .registerWrapper form{
-        padding-left: 30px;
-    }
-}
-
 /********Login Form**********/
 .containerLogin{
     position: relative;
-    width: 100%;
-    margin: 0 auto;
-    padding-left: 20%;
     top: 25px;
     font-family: Carter One;
+    text-align: center;
 }  
 
 .containerLogin h1{
@@ -131,7 +91,8 @@ header{
 
 .loginForm{
     padding-top:25px;
-    margin-left: 25%;
+   display: inline-block;
+   text-align: left;
 }
 
 .containerLogin button{
@@ -140,58 +101,58 @@ header{
     margin-top: 2%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.logoutButton{ /****TODO Doesn't work*******/
-    position: absolute;
-    right: 2px;
+/***************header**************/
+.headerIcons a{
+    position: relative;
+    float: left;
+    margin-top: 2px;
+    font-size: 35px; 
+    color: firebrick;
+    letter-spacing: 50px;
 }
-.profileIcon{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+.headerIcons{
+    margin-left: 15px;
+}
+.greeting{
+    position: relative;
     float: right;
-    margin: 2px;
+    font-size: 35px; 
+    color: firebrick;
+    display: flex;
+    margin-right: 15px;
 }
 
 #logo {
     position: absolute;
     width: 15%;
     height: 140px;
-    background-image: url("images/logo.png");
+    background-image: url(../media/images/logo.png);
     background-repeat: no-repeat;
     background-position: center;
     left: 45%;
 }
+#logo:hover{
+    -webkit-animation-name:              shake;    
+    -webkit-animation-duration:          0.8s;
+    -webkit-animation-iteration-count:   infinite;
+    -webkit-animation-timing-function:   linear;
+    -webkit-transform-origin:            50% 100%;
+}
 
-.headerIcons a{
-    position: relative;
-    margin: 25px;    
-    font-size: 35px; 
-    color: firebrick;
-    letter-spacing: 35px;
-    }
+@keyframes shake {
+    0%  { -webkit-transform:     translate(2px, 1px) rotate(0deg); }
+    10% { -webkit-transform:     translate(-1px, -2px) rotate(-2deg); }
+    20% { -webkit-transform:     translate(-3px, 0px) rotate(3deg); }
+    30% { -webkit-transform:     translate(0px, 2px) rotate(0deg); }
+    40% { -webkit-transform:     translate(1px, -1px) rotate(1deg); }
+    50% { -webkit-transform:     translate(-1px, 2px) rotate(-1deg); }
+    60% { -webkit-transform:     translate(-3px, 1px) rotate(0deg); }
+    70% { -webkit-transform:     translate(2px, 1px) rotate(-2deg); }
+    80% { -webkit-transform:     translate(-1px, -1px) rotate(4deg); }
+    90% { -webkit-transform:     translate(2px, 2px) rotate(0deg); }
+    100%{ -webkit-transform:     translate(1px, -2px) rotate(-1deg); }
+   }
+
 
 .headerIcons a:hover{
     text-decoration: none;
@@ -216,6 +177,10 @@ nav a:hover {
     position: relative;
 }
 
+nav button{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 17px;
+}
 
 /****************BREADCRUMBS*************/
 
@@ -224,41 +189,21 @@ nav a:hover {
     height: 50px;
     width: 100%;
 }
-/****************FORM********************/
+/****************CREATE NEW PROJECT********************/
 
-.form_wrapper{
+.createnewproject-wrapper{
     position: relative;
     margin-left: 40%;
-    width: 380px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Carter One;
     font-size: 20px;
     justify-content: space-evenly;
-    margin-bottom: 70px;
-    margin-top: 40px;
+    width: 35%;
+    margin: 0 auto;
 }
-.form_wrapper input[type="text"], .form_wrapper input[type="email"], .form_wrapper input[type="tel"], .form_wrapper textarea{
+.createnewproject-wrapper input[type="text"], .createnewproject-wrapper input[type="email"], .createnewproject-wrapper input[type="tel"], .createnewproject-wrapper textarea{
     width:100%;
     height: 40px;
 }
-
-.icons {
-    position: relative;
-    margin-top: 5px; 
-}
-.icons label{
-    padding: 10px;
-}
-
-.finishedButton input {
-    height: 70px;
-    width: 300px;
-    background-color: firebrick;
-    border-radius: 20px;
-    margin-left: 70px;
-    font-weight: bold;
-    font-size: 27px;
-}
-
 
 input:invalid {
     border: firebrick solid 1px;
@@ -266,6 +211,94 @@ input:invalid {
 
 textarea:invalid {
     border: firebrick solid 1px;
+}
+
+/**************HOME PAGE***************/
+
+.main-wrapper{
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    justify-content: space-evenly;
+    
+}
+
+.main-wrapper a, .project-container a{
+    color:black;
+}
+
+.main-wrapper a:hover, .project-container a:hover{
+    color: firebrick;
+    text-decoration: none;
+}
+
+/**************projec page**************/
+.project-container{
+    position: relative;
+    flex-wrap: wrap;
+    top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+    
+.project-container h1, .createnewproject-wrapper h1{
+    position: relative;
+    font-family: Carter One;
+    font-size: 50px;
+    margin: 0 auto;
+}
+
+img{
+    position: relative;
+    max-width:100%;
+    height:auto;
+}
+
+.facultyIcon{
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.contact{
+    margin-top: 30px;
+}
+/**************heart change color - JS**************/
+
+.color {
+    color: firebrick;
+}
+
+.heart {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    top: -70px;
+    font-size: 50px;
+    background-color: white;
+    margin: 0 auto;
+}
+
+/****************Faculties************/
+
+
+#faculties-list{
+    position: relative;
+    font-family: Carter One;
+    font-size: 20px;
+    justify-content: space-evenly;
+    width: 25%;
+    margin: 0 auto;
+    margin-left: 50%;
+}
+
+#faculties-list li{
+position: relative;
+padding: 30px;
+margin: 0 auto;
+
 }
 
 
@@ -278,116 +311,45 @@ textarea:invalid {
         background-color: white;
         height: 80px;
     }
-    .profileIcon{
-        width: 40px;
-        height: 40px;
-    }
-    
-    #logo{
-    background-image: url(../../images/logoPhone.png) ;
-    height: 70px;
-    }
-    
-    .main_wrapper{
-        margin-top: -40px;
-    }
+
     .headerIcons a{
         margin: 2%;
         font-size: 17px; 
         letter-spacing: 12px;
     }
-
-    .card-text{
-        font-size:15px;
-    }  
-
-
-    /***********FORM**************/
-    .form_wrapper{
-        margin-top: -40px;
-        margin-left: 25%;
-        width: 180px;
-        font-size: 10px;
-        margin-bottom: 50px;
+    .greeting{
+        font-size: 17px; 
     }
 
-    .form_wrapper input[type="text"], .form_wrapper input[type="email"], .form_wrapper input[type="tel"], .form_wrapper textarea{
-        width:100%;
-        height: 20px;
+    #logo{
+        background-image: url(../media/images/logoPhone.png);
+    height: 70px;
     }
 
-    .icons img {
-        width: 30px;
-        height: 30px;
+}
+
+
+@media only screen and (min-width:300px) and (max-width:770px){
+    /************Login/Register************/
+    .container{
+        font-size:70px;
+        margin-top: 20%;
+        width: 80%;
+        height: 80%;
+    } 
+    .loginButton{
+        margin-left: 30%;
+        margin-top: 20%;
+    }
+    .registerButton{
+        margin-top: 60%;
+        margin-left: 20%;
+    }
+    .container a{
+        color: white;
+    }
+    .loginRegisterBody{
+        background-color: firebrick;   
     }
 
-    .finishedButton input {
-        height: 30px;
-        width: 180px;
-        border-radius: 20px;
-        margin-left: 0px;
-        font-size: 17px;
-    }
 }
-
-/**************heart change color - JS**************/
-
-.color {
-    color: red;
-}
-
-.heart {
-    position: relative;
-    height: 40px;
-    width: 40px;
-    top: -70px;
-    float:center;
-    font-size: 50px;
-    background-color: white;
-}
-
-/**********Login Form************/
-
-
-.loginWrapper{
-    position: absolute;
-    width: 1000px;
-    height: 500px;
-    left: 45%;
-    top: 80px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.loginWrapper h1{
-    color: firebrick;
-    font-size: 100px;
-    display:flex;
-    width: 90%;
-}
-
-.loginWrapper form{
-    position: relative;
-    width: 1000px;
-    height: 500px;
-    left: 20%;
-    top: 50px;
-}
-
-
-
-
-/**************HOME PAGE***************/
-.projects-container{
-    display: flex;
-    justify-content: space-between;
-    text-align: center; 
-    width: 1000px;
-    height: 800px;
-    flex-wrap: wrap;
-  }
-  
-  .project-item{
-    margin-right: 55px;
-    justify-content: space-evenly;
-    float: left;
-  }
-

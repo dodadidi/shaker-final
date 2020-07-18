@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Shaker - create new project</title>
+  <title>Shaker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel ="stylesheet" href="{% static 'projects/css/style.css' %}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">            
@@ -14,15 +14,15 @@
     <a href="/homepage" id="logo" ></a>        
       <ul class="headerIcons">
         <li><a href="#" class="far fa-bell"></a>
-            <a href="#" class="fas fa-heart"></a>
-            <a href="/createNewProject" class="fas fa-plus-circle"></a>
+          <a href="#" class="fas fa-heart"></a>
+          <a href="/createNewProject" class="fas fa-plus-circle"></a>
         </li>
       </ul>
     {% if user.is_authenticated %}
     <div class="greeting">
       <span><b>Hi {{user.username}}</b></span>
     </div>
-    {% else %}
+    {% else %}        
       <a href="/Login">Login</a>
       <a href="/register">Register</a>
     {% endif %}    
@@ -35,20 +35,20 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/homepage">Home</span></a>
+        <li class="nav-item active">
+          <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/myprojects">My projects</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/createNewProject">New project <span class="sr-only">(current)</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/createNewProject">New project</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/allprojects">All Projects</a>
+          <a class="nav-link" href="/allprojects">All projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/allfaculties">Faculties</a> 
+          <a class="nav-link" href="/allfaculties">Faculties</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" action="#" method="GET">
@@ -56,37 +56,32 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       <form action="{% url 'logoutuser' %}" method="POST">
-      {% csrf_token %}
+        {% csrf_token %}
         <button class="btn btn-light logoutButton" type='submit'>Logout</button>
       </form>
     </div>
   </nav>
-
   <div class="breadc">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/homepage">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">New project</li>
+        <li class="breadcrumb-item active" aria-current="page">Faculties</li>
       </ol>
     </nav>
   </div>
-
+<br><br><br>
   {% if user.is_authenticated %}
-    <div class="createnewproject-wrapper">
-      <h1>Create new project</h1>
-      <br><br>
-      <h3>{{errMsg}}</h3>
-      <form action="#" method="POST" enctype="multipart/form-data" onsubmit="return checkForm()"> <!--when we send file from form-->
-        {% csrf_token %}
-        {{form.as_p}}
-        <button class="btn btn-dark" type='submit'>Save new project</button>
-      </form>
-    </div>
-  {% endif %}    
-      
+	<main id="faculties-list">
+    <h1></h1>
+	  </main>  
+  {% endif %}
+
   <script src="https://kit.fontawesome.com/9f3ffd2183.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="{% static 'projects/js/get_faculties.js' %}"></script>
+
 </body>
 </html>

@@ -1,0 +1,53 @@
+{
+    "category": "Faculties",
+    "faculties": [{
+            "id": "1",
+            "name": "Fashion",
+            "imgUrl": "/static/projects/media/images/departmentsIcons/fashion.png"
+        },
+        {
+            "id": "2",
+            "name": "Art",
+            "imgUrl": "/static/projects/media/images/departmentsIcons/art.png"
+        },
+        {
+            "id": "3",
+            "name": "Chemical",
+            "imgUrl": "/static/projects/media/images/departmentsIcons/chemical.png"
+        },
+        {
+            "id": "4",
+            "name": "Graphic",
+            "imgUrl": "/static/projects/media/images/departmentsIcons/graphic.png"
+        },
+        {
+            "id": "5",
+            "name": "Jewellery",
+            "imgUrl": "/static/projects/media/images/departmentsIcons/jewellery.png"
+        },
+        {
+            "id": "6",
+            "name": "Software Engineering",
+            "imgUrl": "/static/projects/media/images/departmentsIcons/software.png"
+        },
+        {
+            "id": "7",
+            "name": "Textil",
+            "imgUrl": "/static/projects/media/images/departmentsIcons/textil.png"
+        },
+        {
+            "id": "8",
+            "name": "Electronic",
+            "imgUrl": "/static/projects/media/images/departmentsIcons/electric.png"
+        },
+        {
+            "id": "9",
+            "name": "Industrial",
+            "imgUrl": "/static/projects/media/images/departmentsIcons/indus.png"
+        }
+    ]
+}
+
+
+
+

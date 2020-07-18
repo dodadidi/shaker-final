@@ -23,8 +23,8 @@ urlpatterns = [
     path('project/<int:project_pk>/done', views.doneproject, name='doneproject'),
     path('project/<int:project_pk>/about', views.projectabout, name='project-about'),        
 
-    path('allprojects/',views.allProjects, name="all-projects"),    
-    #path('assigntome/<int:project_pk>', views.assigntome, name='assigntome'),
+    path('allprojects/',views.allProjects, name="all-projects"),
+    path('allfaculties/',views.allfaculties, name="all-faculties")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

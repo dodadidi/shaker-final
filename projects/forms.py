@@ -6,5 +6,4 @@ class ProjectForm(ModelForm):
         model = Project
         fields = ['fullName','email','phone','projectName','keyWord', 'description', 'fasion','art' ,'chemical','jewellery' ,'graphic', 'electronic', 'software' , 'industrial', 'Textil']
 
-         
-#'imgUrl',
+    
