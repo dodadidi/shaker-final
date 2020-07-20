@@ -71,27 +71,31 @@
       </ol>
     </nav>
   </div>
-
-    {% if user.is_authenticated %}
+  {% if user.is_authenticated %}
     <div class="project-container">
       <h1>All Users Projects</h1>
       <br><br>
       <h3>{{errMsg}}</h3>
-
       <ul>
         {% for u in users %}
-        <h2>{{ u.username }}'s projects:</h2>
-        <br>
-        <ol>
-          {% for project in allprojects %}
-            {%if project.user_id_id == u.id %}
-              <li>
-                <a href="/project/{{ project.id }}/about"><h3>{{project.projectName}}</h3>
-                  {{project.dateCreated}}<br>
-                {% if project.description %} {{project.description}} {% endif %}</a>
-                {% if project.user_id_id == user.id %}
-                  <a href="/project/{{ project.id }}" class="fas fa-pencil-alt">&nbsp;&nbsp;Edit</a> 
-                {% endif %} 
+          <h2>{{ u.username }}'s projects:</h2>
+          <br>
+          <ol>
+            {% for project in allprojects %}
+              {%if project.user_id_id == u.id %}
+                <li>
+                  <a href="/project/{{ project.id }}/about"><h3>{{project.projectName}}</h3>
+                    {{project.dateCreated}}<br>
+                  {% if project.description %} {{project.description}} {% endif %}</a>
+                  {% if project.user_id_id == user.id%}
+                    <a href="/project/{{ project.id }}" class="fas fa-pencil-alt">&nbsp;&nbsp;Edit</a> 
+                  {% endif %}
+                  {% if user.is_superuser %}
+                    <form action="#" method="POST">
+                      {% csrf_token %}
+                      <button type='submit' class="far fa-trash-alt btn btn-light">&nbsp;&nbsp;<b>Delete project</b></button>
+                    </form>
+                  {% endif %}
                 <br><br>
                 {% if project.fasion %}
                     <img class="facultyIcon" src="{% static 'projects/media/images/departmentsIcons/fashion.png' %}" class="Fasion" alt="Fasion" title="Fasion">&nbsp;

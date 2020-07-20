@@ -199,6 +199,7 @@ nav button{
     justify-content: space-evenly;
     width: 35%;
     margin: 0 auto;
+    margin-bottom: 40px;
 }
 .createnewproject-wrapper input[type="text"], .createnewproject-wrapper input[type="email"], .createnewproject-wrapper input[type="tel"], .createnewproject-wrapper textarea{
     width:100%;
@@ -287,21 +288,24 @@ img{
 #faculties-list{
     position: relative;
     font-family: Carter One;
-    font-size: 20px;
     justify-content: space-evenly;
-    width: 25%;
+    width: 80%;
     margin: 0 auto;
-    margin-left: 50%;
+    text-align: center;
 }
 
 #faculties-list li{
 position: relative;
+font-size: 20px;
 padding: 30px;
 margin: 0 auto;
-
+display: inline-block;
 }
 
-
+#faculties-list button{
+    position: relative;
+    float: right;
+}
 /*mobile*/
 @media (max-width: 680px) {
     .breadcrumb {
@@ -329,7 +333,7 @@ margin: 0 auto;
 }
 
 
-@media only screen and (min-width:300px) and (max-width:770px){
+@media only screen and (min-width:250px) and (max-width:770px){
     /************Login/Register************/
     .container{
         font-size:70px;
@@ -340,10 +344,13 @@ margin: 0 auto;
     .loginButton{
         margin-left: 30%;
         margin-top: 20%;
+        font-size: 70%;
+
     }
     .registerButton{
         margin-top: 60%;
         margin-left: 20%;
+        font-size:70%;
     }
     .container a{
         color: white;

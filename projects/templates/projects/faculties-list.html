@@ -8,6 +8,7 @@
   <link rel ="stylesheet" href="{% static 'projects/css/style.css' %}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">            
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carter+One&family=Open+Sans&family=Roboto:wght@300&display=swap">
+  <link rel="shortcut icon" href="">
 </head>
 <body>
   <header> 
@@ -69,11 +70,15 @@
       </ol>
     </nav>
   </div>
-<br><br><br>
+  <br><br><br>
   {% if user.is_authenticated %}
-	<main id="faculties-list">
-    <h1></h1>
-	  </main>  
+	  <main id="faculties-list">
+      <h1></h1>
+      {% if user.is_superuser %}
+        <a href="#"><button type='submit' class="btn btn-light">&nbsp;&nbsp;<b>Add new faculty</b></button></a>
+        <br><br>
+        {% endif %}
+    </main>
   {% endif %}
 
   <script src="https://kit.fontawesome.com/9f3ffd2183.js" crossorigin="anonymous"></script>

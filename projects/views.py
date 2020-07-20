@@ -79,7 +79,6 @@ def createNewProject(request):
             form = ProjectForm(request.POST, request.FILES)
             newProject = form.save(commit=False)
             newProject.user_id = request.user
-            # JANGO form validations
             newProject.save()
             return redirect('my-projects')
         except ValueError:
@@ -122,8 +121,8 @@ def doneproject(request, project_pk):
         return redirect('my-projects')
 
 
-#def assigntome(request, project_pk):
-#    projects = get_object_or_404(Project, pk= project_pk)
-#    projects.user_id_id = request.user.id
-#    projects.save()
-#    return redirect('allProjects')
+#@login_required
+#def filterByProjectName(request):
+#    users = User.objects.all()
+#    projects = Project.objects.order_by('projectName')
+#    return render(request, 'projects/allprojects.html', {'allprojects': projects, 'users': users})
